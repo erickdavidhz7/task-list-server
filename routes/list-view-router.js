@@ -8,8 +8,13 @@ listViewRouter.route("/list_view").get((req, res) => {
 
 listViewRouter.route("/list_view/:id").get((req, res) => {
   const id = req.params.id;
-  const validateId = taskList.some(task => task.id == id);
-})
+  const userTask = taskList.find(task => task.id == id);
+  if (!userTask) {
+    res.status(401).send({ error: "ID not found" });
+  } else {
+    res.status(200).send({ Task: userTask });
+  }
+});
 
 listViewRouter.route("/list_view/:type").get((req, res) => {
   const type = req.params.type;
