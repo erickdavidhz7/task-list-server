@@ -32,15 +32,14 @@ module.exports = function validListEditRouter(req, res, next) {
     } else {
       return next();
     }
-  } else if (req.method === "DELETE"){
+  } else if (req.method === "DELETE") {
     const id = req.params.id;
-    if(!parseInt(id)){
-      return res.status(400).send({error : "Invalid ID"});
-    }else{
+    if (!parseInt(id)) {
+      return res.status(400).send({ error: "Invalid ID" });
+    } else {
       next();
     }
-  }
-  else{
+  } else {
     next();
   }
 };

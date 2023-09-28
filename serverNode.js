@@ -50,7 +50,9 @@ app.post("/login", (req, res) => {
     .send({ message: `Welcome ${dataUser.email}`, token: token });
 });
 
-app.get("/auth", validateJWT, validRole, (req, res) => {});
+app.get("/auth", validateJWT, validRole, (req, res) => {
+  res.send({ authentication: "The authentication has been succesful" });
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
