@@ -2,9 +2,11 @@ const express = require("express");
 const listEditRouter = express.Router();
 const taskList = require("../utils/taskList.json");
 const validListEditRouter = require("../middlewares/validListEditRouter");
+const { v4: uuidv4 } = require('uuid');
+
 
 listEditRouter.route("/list_create").post(validListEditRouter, (req, res) => {
-  const newTask = req.body;
+  const newTask = {id: uuidv4(), ...req.body};
   taskList.push(newTask);
   res.send({ taskList_edited: taskList });
 });

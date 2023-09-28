@@ -1,10 +1,9 @@
 module.exports = function validListEditRouter(req, res, next) {
   const body = req.body;
-  const requiredKeysPOST = ["id", "name", "description", "status"];
-  const requiredKeysPUT = ["name", "description", "status"];
+  const requiredKeys = ["name", "description", "status"];
 
   if (req.method === "POST") {
-    const checkAllKeysPOST = requiredKeysPOST.every(key =>
+    const checkAllKeysPOST = requiredKeys.every(key =>
       body.hasOwnProperty(key)
     );
     if (Object.keys(body).length === 0) {
@@ -18,7 +17,7 @@ module.exports = function validListEditRouter(req, res, next) {
     }
   } else if (req.method === "PUT") {
     const id = req.params.id;
-    const checkAllKeysPUT = requiredKeysPUT.every(key =>
+    const checkAllKeysPUT = requiredKeys.every(key =>
       body.hasOwnProperty(key)
     );
     if (Object.keys(body).length === 0) {

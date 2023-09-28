@@ -6,6 +6,11 @@ listViewRouter.route("/list_view").get((req, res) => {
   res.status(200).send({ taskList: taskList });
 });
 
+listViewRouter.route("/list_view/:id").get((req, res) => {
+  const id = req.params.id;
+  const validateId = taskList.some(task => task.id == id);
+})
+
 listViewRouter.route("/list_view/:type").get((req, res) => {
   const type = req.params.type;
   if (type === "completed") {
