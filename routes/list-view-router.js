@@ -1,6 +1,6 @@
 const express = require("express");
 const listViewRouter = express.Router();
-const taskList = require("../taskList.json");
+const taskList = require("../utils/taskList.json");
 
 listViewRouter.route("/list_view").get((req, res) => {
   res.status(200).send({ taskList: taskList });

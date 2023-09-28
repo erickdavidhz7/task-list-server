@@ -1,6 +1,6 @@
 const express = require("express");
 const listEditRouter = express.Router();
-const taskList = require("../taskList.json");
+const taskList = require("../utils/taskList.json");
 const validListEditRouter = require("../middlewares/validListEditRouter");
 
 listEditRouter.route("/list_create").post(validListEditRouter, (req, res) => {
