@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.status(200).send("Welcome to my task list server!");
+  res.status(200).send({ message: "Welcome to my task list server!" });
 });
 
 app.get("/this-should-exists", (req, res) => {
