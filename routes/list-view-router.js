@@ -16,7 +16,7 @@ listViewRouter.route("/list_view/:id").get((req, res) => {
   }
 });
 
-listViewRouter.route("/list_view/:type").get((req, res) => {
+listViewRouter.route("/list_view/filter/:type").get((req, res) => {
   const type = req.params.type;
   if (type === "completed") {
     res.redirect("/list_view_completed");
